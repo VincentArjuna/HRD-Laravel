@@ -9,7 +9,7 @@ class NavigationController extends Controller
 {
     public function index()
     {
-        $navigation = Navigation::orderBy('position')->get();
+        $navigation = Navigation::get();
         $data = [
             'success' => true,
             'message' => 'Navigation Fetched Successfully',

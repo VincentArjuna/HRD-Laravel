@@ -17,19 +17,37 @@ class NavigationSeeder extends Seeder
             'parent_id' => null,
             'name' => 'Dashboard Test',
             'url' => 'dashboard',
-            'icon' => 'null',
+            'icon' => 'HomeIcon',
             'position' => 1,
             'enable' => true,
             'actives' => 'dashboard'
         ]);
         Navigation::create([
             'parent_id' => null,
-            'name' => 'test menu2',
-            'url' => 'dashboard',
-            'icon' => 'null',
+            'name' => 'User Test',
+            'url' => 'users.index',
+            'icon' => 'UsersIcon',
             'position' => 2,
             'enable' => true,
-            'actives' => 'dashboard'
+            'actives' => 'users.index'
+        ]);
+        Navigation::create([
+            'parent_id' => null,
+            'name' => 'About Test',
+            'url' => 'about',
+            'icon' => 'InformationCircleIcon',
+            'position' => 2,
+            'enable' => true,
+            'actives' => 'about'
+        ]);
+        Navigation::create([
+            'parent_id' => 3,
+            'name' => 'Children Test',
+            'url' => 'about',
+            'icon' => 'InformationCircleIcon',
+            'position' => 1,
+            'enable' => true,
+            'actives' => 'about'
         ]);
     }
 }
