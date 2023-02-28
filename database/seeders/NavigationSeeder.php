@@ -25,16 +25,16 @@ class NavigationSeeder extends Seeder
         Navigation::create([
             'parent_id' => null,
             'name' => 'User Test',
-            'url' => 'users.index',
+            'url' => '#',
             'icon' => 'UsersIcon',
             'position' => 2,
             'enable' => true,
-            'actives' => 'users.index'
+            'actives' => 'users.*'
         ]);
         Navigation::create([
             'parent_id' => null,
             'name' => 'About Test',
-            'url' => 'about',
+            'url' => '#',
             'icon' => 'InformationCircleIcon',
             'position' => 2,
             'enable' => true,
@@ -48,6 +48,15 @@ class NavigationSeeder extends Seeder
             'position' => 1,
             'enable' => true,
             'actives' => 'about'
+        ]);
+        Navigation::create([
+            'parent_id' => 2,
+            'name' => 'User List Test',
+            'url' => 'users.index',
+            'icon' => 'UserIcon',
+            'position' => 1,
+            'enable' => true,
+            'actives' => 'users.index'
         ]);
     }
 }

@@ -9,7 +9,7 @@ class NavigationController extends Controller
 {
     public function index()
     {
-        $navigation = Navigation::get();
+        $navigation = Navigation::where('parent_id', null)->with('children')->get();
         $data = [
             'success' => true,
             'message' => 'Navigation Fetched Successfully',
