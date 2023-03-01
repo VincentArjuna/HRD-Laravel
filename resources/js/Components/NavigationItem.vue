@@ -1,7 +1,7 @@
 <template>
     <li v-if="item" class="relative px-6 py-3" :class="{ 'pl-8': item.parent_id }">
         <template v-if="!hasChildren">
-            <NavLink :href="route(item.url)" :active="route().current(item.actives)">
+            <NavLink :href="route(item.url)" :active="item.actives.some(active => route().current(active))">
                 <template #icon>
                     <HeroIcon :name="item.icon" />
                 </template>
@@ -50,7 +50,7 @@ export default {
     setup(props) {
         const showingChildren = ref(false);
         const hasChildren = computed(() => props.item.children && props.item.children.length > 0);
-        if (hasChildren && route().current(props.item.actives)) {
+        if (hasChildren && props.item.actives.some(active => route().current(active))) {
             showingChildren.value = true;
         }
         return {

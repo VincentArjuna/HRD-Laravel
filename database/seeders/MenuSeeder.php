@@ -20,7 +20,9 @@ class MenuSeeder extends Seeder
             'icon' => 'HomeIcon',
             'position' => 1,
             'enable' => true,
-            'actives' => 'dashboard'
+            'actives' => [
+                'dashboard',
+            ]
         ]);
         Menu::create([
             'parent_id' => null,
@@ -29,7 +31,9 @@ class MenuSeeder extends Seeder
             'icon' => 'UsersIcon',
             'position' => 2,
             'enable' => true,
-            'actives' => 'users.*',
+            'actives' => [
+                'users.*',
+            ],
             'permission_name' => 'user-management-menu'
         ]);
         Menu::create([
@@ -39,7 +43,9 @@ class MenuSeeder extends Seeder
             'icon' => 'BarsArrowDownIcon',
             'position' => 4,
             'enable' => true,
-            'actives' => 'about',
+            'actives' => [
+                'about',
+            ],
             'permission_name' => 'menu-management-menu'
         ]);
         Menu::create([
@@ -49,7 +55,9 @@ class MenuSeeder extends Seeder
             'icon' => 'Bars4Icon',
             'position' => 1,
             'enable' => true,
-            'actives' => 'about',
+            'actives' => [
+                'about',
+            ],
             'permission_name' => 'view-menu-list'
         ]);
         Menu::create([
@@ -59,7 +67,9 @@ class MenuSeeder extends Seeder
             'icon' => 'UserIcon',
             'position' => 1,
             'enable' => true,
-            'actives' => 'users.index',
+            'actives' => [
+                'users.index',
+            ],
             'permission_name' => 'view-user-list'
         ]);
         Menu::create([
@@ -69,7 +79,10 @@ class MenuSeeder extends Seeder
             'icon' => 'ShieldCheckIcon',
             'position' => 3,
             'enable' => true,
-            'actives' => 'users.index',
+            'actives' => [
+                'roles.*',
+                'permission.*'
+            ],
             'permission_name' => 'role-permission-menu'
         ]);
         Menu::create([
@@ -79,7 +92,9 @@ class MenuSeeder extends Seeder
             'icon' => 'UserGroupIcon',
             'position' => 1,
             'enable' => true,
-            'actives' => 'users.index',
+            'actives' => [
+                'roles.index',
+            ],
             'permission_name' => 'view-role-menu'
         ]);
         Menu::create([
@@ -89,7 +104,9 @@ class MenuSeeder extends Seeder
             'icon' => 'LockClossedIcon',
             'position' => 2,
             'enable' => true,
-            'actives' => 'users.index',
+            'actives' => [
+                'permissions.index',
+            ],
             'permission_name' => 'view-permission-menu'
         ]);
     }
