@@ -20,6 +20,6 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(AdminSeeder::class);
-        $this->call(NavigationSeeder::class);
+        $this->call(MenuSeeder::class);
     }
 }

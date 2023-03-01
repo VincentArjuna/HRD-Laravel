@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Navigation extends Model
+class Menu extends Model
 {
     use HasFactory;
 
@@ -13,11 +13,11 @@ class Navigation extends Model
 
     public function children()
     {
-        return $this->hasMany(Navigation::class, 'parent_id');
+        return $this->hasMany(Menu::class, 'parent_id');
     }
 
     public function parent()
     {
-        return $this->belongsTo(Navigation::class, 'parent_id');
+        return $this->belongsTo(Menu::class, 'parent_id');
     }
 }

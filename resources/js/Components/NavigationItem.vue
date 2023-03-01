@@ -50,7 +50,7 @@ export default {
     setup(props) {
         const showingChildren = ref(false);
         const hasChildren = computed(() => props.item.children && props.item.children.length > 0);
-
+        console.log(props.item);
         return {
             showingChildren,
             hasChildren

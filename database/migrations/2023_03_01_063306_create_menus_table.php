@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('navigations', function (Blueprint $table) {
+        Schema::create('menus', function (Blueprint $table) {
             $table->id();
             $table->foreignId('parent_id')
                 ->nullable()
                 ->default(null)
-                ->constrained('navigations', 'id')
+                ->constrained('menus', 'id')
                 ->cascadeOnDelete();
             $table->string('name');
             $table->string('url')
@@ -31,6 +31,7 @@ return new class extends Migration
             $table->longText('actives')
                 ->nullable()
                 ->default(null);
+            $table->string('permission_name')->nullable();
             $table->timestamps();
         });
     }
@@ -40,6 +41,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('navigations');
+        Schema::dropIfExists('menus');
     }
 };
