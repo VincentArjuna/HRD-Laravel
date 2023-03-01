@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class MenuController extends Controller
 {
@@ -11,6 +12,13 @@ class MenuController extends Controller
      * Display a listing of the resource.
      */
     public function index()
+    {
+        return Inertia::render('Menus/Index', [
+            'menus' => Menu::paginate()
+        ]);
+    }
+
+    public function navigation()
     {
         $menu = Menu::where('parent_id', null)->orderBy('position')->with('children')->get();
         $data = [

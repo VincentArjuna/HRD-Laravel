@@ -24,7 +24,7 @@ return new class extends Migration
                 ->default('#');
             $table->string('icon')
                 ->nullable()
-                ->default('circle');
+                ->default('HomeIcon');
             $table->unsignedTinyInteger('position');
             $table->boolean('enable')->default(true);
             $table->boolean('deleteable')->default(true);

@@ -20,4 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/navigation', [MenuController::class, 'index']);
+Route::get('/navigation', [MenuController::class, 'navigation']);

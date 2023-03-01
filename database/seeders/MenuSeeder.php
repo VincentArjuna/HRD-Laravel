@@ -44,19 +44,19 @@ class MenuSeeder extends Seeder
             'position' => 4,
             'enable' => true,
             'actives' => [
-                'about',
+                'menus.*',
             ],
             'permission_name' => 'menu-management-menu'
         ]);
         Menu::create([
             'parent_id' => 3,
             'name' => 'Menu List',
-            'url' => 'about',
+            'url' => 'menus.index',
             'icon' => 'Bars4Icon',
             'position' => 1,
             'enable' => true,
             'actives' => [
-                'about',
+                'menus.index',
             ],
             'permission_name' => 'view-menu-list'
         ]);
@@ -101,7 +101,7 @@ class MenuSeeder extends Seeder
             'parent_id' => 6,
             'name' => 'Permissions',
             'url' => 'users.index',
-            'icon' => 'LockClossedIcon',
+            'icon' => 'KeyIcon',
             'position' => 2,
             'enable' => true,
             'actives' => [

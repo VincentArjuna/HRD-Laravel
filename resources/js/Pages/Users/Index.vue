@@ -1,5 +1,5 @@
 <template>
-  <Head title="Users" />
+  <Head title="User Management" />
 
   <AuthenticatedLayout>
     <template #header>
@@ -55,7 +55,7 @@
                   </Link>
                   <Link :href="route('users.destroy', user.id)" method="delete" as="button" type="button"
                     class="rounded-lg border border-transparent bg-red-600 px-3 py-2 text-center text-sm font-medium leading-5 text-white transition-colors duration-150 hover:bg-red-700 focus:outline-none focus:ring active:bg-red-600">
-                  <HeroIcon name="PencilSquareIcon" class="w-4 h-4 inline" />
+                  <HeroIcon name="TrashIcon" class="w-4 h-4 inline" />
                   Delete
                   </Link>
                 </td>
@@ -75,15 +75,11 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import Pagination from '@/Components/Pagination.vue';
-import { Head, Link, usePage } from '@inertiajs/vue3';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
+import { Head, Link } from '@inertiajs/vue3';
 import HeroIcon from '@/Components/HeroIcon.vue';
 
 const props = defineProps({
   users: Object
 })
 
-const createUserPage = () => {
-  this.$inertia.visit(route('users.create'));
-}
 </script>
