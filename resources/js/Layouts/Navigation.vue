@@ -1,9 +1,9 @@
 <template>
-  <aside class="z-20 hidden w-64 overflow-y-auto bg-white md:block flex-shrink-0">
+  <aside class="z-20 hidden w-64 overflow-y-auto bg-white md:block flex-shrink-0 shadow-2xl">
     <!--sidebar title-->
     <div class="py-4 text-gray-500">
       <Link class="ml-6 text-lg font-bold text-gray-800" :href="route('dashboard')">
-      Windmill
+      AptaDash
       </Link>
 
       <ul class="mt-6">

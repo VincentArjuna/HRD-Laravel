@@ -34,7 +34,9 @@ class MenuController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Menus/Create', [
+            'menus' => Menu::all()
+        ]);
     }
 
     /**
@@ -42,7 +44,10 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Menu::create($request);
+        return Inertia::render('Menus/Index', [
+            'menus' => Menu::latest()->paginate()
+        ])->with('message', 'Successfully create Menu!');
     }
 
     /**

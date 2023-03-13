@@ -1,5 +1,5 @@
 <template>
-    <li v-if="item" class="relative px-6 py-3" :class="{ 'pl-8': item.parent_id }">
+    <li v-if="item" class="relative px-6 py-3 " :class="{ 'pl-8': item.parent_id }">
         <template v-if="!hasChildren">
             <NavLink :href="route(item.url)" :active="item.actives.some(active => route().current(active))">
                 <template #icon>
@@ -22,7 +22,8 @@
             <ul v-if="showingChildren"
                 class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
                 aria-label="submenu">
-                <NavigationItem v-for="child in item.children" :key="child.id" :item="child" />
+                <NavigationItem v-for="child in item.children" :key="child.id" :item="child"
+                    class="shadow-indigo-500 shadow-sm" />
             </ul>
         </template>
     </li>

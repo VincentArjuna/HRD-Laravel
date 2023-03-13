@@ -24,7 +24,7 @@
             </div>
 
             <Link :href="route('menus.create')" method="get" as="button" type="button"
-                class="rounded-lg border border-transparent bg-purple-600 px-4 py-2 mb-4 text-center text-sm font-medium leading-5 text-white transition-colors duration-150 hover:bg-purple-700 focus:outline-none focus:ring active:bg-purple-600">
+                class="rounded-lg border border-transparent bg-indigo-500 px-4 py-2 mb-4 text-center text-sm font-medium leading-5 text-white transition-colors duration-150 hover:bg-indigo-700 focus:outline-none focus:ring active:bg-indigo-500">
             <HeroIcon name="PlusIcon" class="w-6 h-6 inline" />
             Create
             </Link>
