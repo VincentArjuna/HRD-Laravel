@@ -23,7 +23,7 @@ class CompanyAssetControler extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('CompanyAsset/Create');
     }
 
     /**
@@ -45,9 +45,11 @@ class CompanyAssetControler extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(CompanyAsset $company_asset)
     {
-        //
+        return Inertia::render('CompanyAsset/Edit', [
+            'company_asset' => $company_asset
+        ]);
     }
 
     /**
