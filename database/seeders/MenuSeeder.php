@@ -26,88 +26,53 @@ class MenuSeeder extends Seeder
         ]);
         Menu::create([
             'parent_id' => null,
-            'name' => 'User Management',
+            'name' => 'Company Asset',
             'url' => '#',
-            'icon' => 'UsersIcon',
+            'icon' => 'BuildingOffice2Icon',
             'position' => 2,
             'enable' => true,
             'actives' => [
-                'users.*',
-            ],
-            'permission_name' => 'user-management-menu'
-        ]);
-        Menu::create([
-            'parent_id' => null,
-            'name' => 'Menu Management',
-            'url' => '#',
-            'icon' => 'BarsArrowDownIcon',
-            'position' => 4,
-            'enable' => true,
-            'actives' => [
-                'menus.*',
+                'company-assets.*',
             ],
             'permission_name' => 'menu-management-menu'
         ]);
+
         Menu::create([
-            'parent_id' => 3,
-            'name' => 'Menu List',
-            'url' => 'menus.index',
+            'parent_id' => 2,
+            'name' => 'Asset List',
+            'url' => 'company-assets.index',
             'icon' => 'Bars4Icon',
             'position' => 1,
             'enable' => true,
             'actives' => [
-                'menus.index',
+                'company-assets.index',
             ],
             'permission_name' => 'view-menu-list'
         ]);
-        Menu::create([
-            'parent_id' => 2,
-            'name' => 'User List Test',
-            'url' => 'users.index',
-            'icon' => 'UserIcon',
-            'position' => 1,
-            'enable' => true,
-            'actives' => [
-                'users.index',
-            ],
-            'permission_name' => 'view-user-list'
-        ]);
+
         Menu::create([
             'parent_id' => null,
-            'name' => 'Roles & Permissions',
+            'name' => 'Employee',
             'url' => '#',
-            'icon' => 'ShieldCheckIcon',
+            'icon' => 'UserGroupIcon',
             'position' => 3,
             'enable' => true,
             'actives' => [
-                'roles.*',
-                'permission.*'
+                'employee-profiles.*',
             ],
-            'permission_name' => 'role-permission-menu'
+            'permission_name' => ''
         ]);
         Menu::create([
-            'parent_id' => 6,
-            'name' => 'Roles',
-            'url' => 'users.index',
-            'icon' => 'UserGroupIcon',
+            'parent_id' => 4,
+            'name' => 'Employee List',
+            'url' => 'employee-profiles.index',
+            'icon' => 'UsersIcon',
             'position' => 1,
             'enable' => true,
             'actives' => [
-                'roles.index',
+                'employee-profiles.index',
             ],
-            'permission_name' => 'view-role-menu'
-        ]);
-        Menu::create([
-            'parent_id' => 6,
-            'name' => 'Permissions',
-            'url' => 'users.index',
-            'icon' => 'KeyIcon',
-            'position' => 2,
-            'enable' => true,
-            'actives' => [
-                'permissions.index',
-            ],
-            'permission_name' => 'view-permission-menu'
+            'permission_name' => ''
         ]);
     }
 }

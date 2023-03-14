@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CompanyAssetControler;
+use App\Http\Controllers\EmployeeAssetController;
+use App\Http\Controllers\EmployeeProfileController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
@@ -35,7 +38,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/about', fn () => Inertia::render('About'))->name('about');
 
     Route::resource('users', UserController::class);
-    Route::resource('menus', MenuController::class);
+    Route::resource('company-assets', CompanyAssetControler::class);
+    Route::resource('employee-profiles', EmployeeProfileController::class);
+    Route::get('/employee-profiles/{employee_profile}/details', [EmployeeProfileController::class, 'details'])->name('employee-profiles.details');
+    Route::resource('employee-assets', EmployeeAssetController::class);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

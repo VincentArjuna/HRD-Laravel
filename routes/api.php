@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CompanyAssetControler;
+use App\Http\Controllers\EmployeeAssetController;
+use App\Http\Controllers\EmployeeProfileController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\NavigationController;
 use Illuminate\Http\Request;
@@ -21,3 +24,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/navigation', [MenuController::class, 'navigation']);
+Route::get('/company-asset', [CompanyAssetControler::class, 'index']);
+Route::get('/employee-asset', [EmployeeAssetController::class, 'index']);
+Route::get('/employee-profile', [EmployeeProfileController::class, 'index']);

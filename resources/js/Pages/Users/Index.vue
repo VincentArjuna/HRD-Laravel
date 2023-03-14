@@ -48,7 +48,7 @@
                   {{ user.email }}
                 </td>
                 <td class="px-4 py-3 grid grid-cols-2 gap-2">
-                  <Link :href="route('users.edit', user.id)" method="delete" as="button" type="button"
+                  <Link :href="route('users.edit', user.id)" method="get" as="button" type="button"
                     class="rounded-lg border border-transparent bg-blue-600 px-3 py-2 text-center text-sm font-medium leading-5 text-white transition-colors duration-150 hover:bg-blue-700 focus:outline-none focus:ring active:bg-blue-600">
                   <HeroIcon name="PencilSquareIcon" class="w-4 h-4 inline" />
                   Edit

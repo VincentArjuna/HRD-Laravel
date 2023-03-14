@@ -1,12 +1,12 @@
 <template>
-    <Head title="Menu Management" />
+    <Head title="Company Assets" />
 
     <AuthenticatedLayout>
         <template #header>
-            Menus
+            Company Assets
         </template>
 
-        <div class="p-4 bg-white rounded-lg shadow-xs">
+        <div class="py-10 px-20 bg-white rounded-lg shadow-xs">
             <div class="inline-flex overflow-hidden mb-4 w-full bg-white rounded-lg shadow-md" v-if="$page.props.message">
                 <div class="flex justify-center items-center w-12 bg-blue-500">
                     <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
@@ -23,7 +23,7 @@
                 </div>
             </div>
 
-            <Link :href="route('menus.create')" method="get" as="button" type="button"
+            <Link :href="route('company-assets.create')" method="get" as="button" type="button"
                 class="rounded-lg border border-transparent bg-indigo-500 px-4 py-2 mb-4 text-center text-sm font-medium leading-5 text-white transition-colors duration-150 hover:bg-indigo-700 focus:outline-none focus:ring active:bg-indigo-500">
             <HeroIcon name="PlusIcon" class="w-6 h-6 inline" />
             Create
@@ -35,39 +35,44 @@
                         <thead>
                             <tr
                                 class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase bg-gray-50 border-b">
-                                <th class="px-4 py-3 text-center">Name</th>
-                                <th class="px-4 py-3 text-center">URL Alias</th>
-                                <th class="px-4 py-3 text-center">Icon</th>
-                                <th class="px-4 py-3 text-center">Position</th>
-                                <th class="px-4 py-3 text-center">Permission Name</th>
+                                <th class="px-4 py-3 text-center">Asset Number</th>
+                                <th class="px-4 py-3 text-center">Type</th>
+                                <th class="px-4 py-3 text-center">Asset Name</th>
+                                <th class="px-4 py-3 text-center">Description</th>
+                                <th class="px-4 py-3 text-center">Entry Date</th>
+                                <th class="px-4 py-3 text-center">Status</th>
                                 <th class="px-4 py-3 text-center">Action</th>
-
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y">
-                            <tr v-for="menu in menus.data" :key="menu.id" class="text-gray-700">
+                            <tr v-for="company_asset in company_assets.data" :key="company_asset.id" class="text-gray-700">
                                 <td class="px-4 py-3 text-sm">
-                                    {{ menu.name }}
+                                    {{ company_asset.asset_number }}
                                 </td>
                                 <td class="px-4 py-3 text-sm">
-                                    {{ menu.url }}
+                                    {{ company_asset.type }}
                                 </td>
                                 <td class="px-4 py-3 text-sm">
-                                    <HeroIcon :name="menu.icon" />
+                                    {{ company_asset.asset_name }}
                                 </td>
                                 <td class="px-4 py-3 text-sm">
-                                    {{ menu.position }}
+                                    {{ company_asset.description }}
                                 </td>
                                 <td class="px-4 py-3 text-sm">
-                                    {{ menu.permission_name }}
+                                    {{ company_asset.date_entry }}
+                                </td>
+                                <td class="px-4 py-3 text-sm">
+                                    {{ company_asset.status_loan }}
                                 </td>
                                 <td class="px-4 py-3 grid grid-cols-2 gap-2">
-                                    <Link :href="route('menus.edit', menu.id)" method="get" as="button" type="button"
+                                    <Link :href="route('company-assets.edit', company_asset.asset_number)" method="delete"
+                                        as="button" type="button"
                                         class="rounded-lg border border-transparent bg-blue-600 px-3 py-2 text-center text-sm font-medium leading-5 text-white transition-colors duration-150 hover:bg-blue-700 focus:outline-none focus:ring active:bg-blue-600">
                                     <HeroIcon name="PencilSquareIcon" class="w-4 h-4 inline" />
                                     Edit
                                     </Link>
-                                    <Link :href="route('menus.destroy', menu.id)" method="delete" as="button" type="button"
+                                    <Link :href="route('company-assets.destroy', company_asset.asset_number)"
+                                        method="delete" as="button" type="button"
                                         class="rounded-lg border border-transparent bg-red-600 px-3 py-2 text-center text-sm font-medium leading-5 text-white transition-colors duration-150 hover:bg-red-700 focus:outline-none focus:ring active:bg-red-600">
                                     <HeroIcon name="TrashIcon" class="w-4 h-4 inline" />
                                     Delete
@@ -79,7 +84,7 @@
                 </div>
                 <div
                     class="px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase bg-gray-50 border-t sm:grid-cols-9">
-                    <pagination :links="menus.links" />
+                    <pagination :links="company_assets.links" />
                 </div>
             </div>
         </div>
@@ -93,8 +98,8 @@ import { Head, Link } from '@inertiajs/vue3';
 import HeroIcon from '@/Components/HeroIcon.vue';
 
 const props = defineProps({
-    menus: Object
+    company_assets: Object
 })
-console.log(props.menus);
+
 </script>
   
