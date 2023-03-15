@@ -1,13 +1,13 @@
 <template>
-    <Head title="Create User" />
+    <Head title="Register Company Asset" />
 
     <AuthenticatedLayout>
         <template #header>
-            Create User
+            Register Company Asset
         </template>
 
-        <div class="p-4 bg-white rounded-lg shadow-xs flex items-center justify-center">
-            <form @submit.prevent="submit" class="w-1/2 my-4">
+        <div class="p-4 bg-gradient-to-tl from-indigo-300 to-white rounded-lg shadow-xs flex items-center justify-center">
+            <form @submit.prevent="submit" class="w-3/4 my-4 grid grid-cols-2 gap-4">
 
                 <div>
                     <InputLabel for="asset_number" value="Asset Number" />
@@ -16,9 +16,10 @@
                     <InputError class="mt-2" :message="form.errors.asset_number" />
                 </div>
 
-                <div class="mt-4">
+                <div>
                     <InputLabel for="type" value="Type" />
-                    <select id="type" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm" v-model="form.type">
+                    <select id="type" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm" v-model="form.type"
+                        required>
                         <option value="Rumah">Rumah</option>
                         <option value="Furniture">Furniture</option>
                         <option value="Laptop">Laptop</option>
@@ -86,8 +87,9 @@
                 </div>
 
                 <div class="flex items-center justify-end mt-4">
-                    <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                        Create User
+                    <PrimaryButton class="ml-4 bg-white text-indigo-600" :class="{ 'opacity-25': form.processing }"
+                        :disabled="form.processing">
+                        Create Company Asset
                     </PrimaryButton>
                 </div>
             </form>
@@ -119,8 +121,8 @@ const form = useForm({
     keterangan: null,
 });
 const submit = () => {
-    form.post(route('users.store'), {
-        onFinish: () => form.reset('password', 'password_confirmation'),
+    form.post(route('company-assets.store'), {
+        // onFinish: () => form.reset(),
     });
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <header class="z-10 py-4 bg-white shadow-md">
+  <header class="z-10 py-4 bg-gradient-to-l from-indigo-300 to-white shadow-md">
     <div class="container flex justify-between items-center px-6 mx-auto h-full text-indigo-500 md:justify-end">
       <!-- Mobile hamburger -->
       <button @click="$page.props.showingMobileMenu = !$page.props.showingMobileMenu"
@@ -13,8 +13,9 @@
 
       <Dropdown>
         <template #trigger>
-          <button class="align-middle rounded-full focus:shadow-outline-purple focus:outline-none" aria-label="Account"
-            aria-haspopup="true">
+          <button
+            class="align-middle rounded-full bg-white px-4 py-2 text-indigo-400 focus:shadow-outline-purple focus:outline-none"
+            aria-label="Account" aria-haspopup="true">
             {{ $page.props.auth.user.name }}
           </button>
         </template>

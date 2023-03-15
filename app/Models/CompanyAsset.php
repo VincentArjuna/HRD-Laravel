@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class CompanyAsset extends Model
 {
     use HasFactory;
+    public $timestamps = false;
+    public $incrementing = false;
+
     protected $table = "company_asset";
     protected $primaryKey = "asset_number";
-    public $incrementing = false;
 
     protected $fillable = [
         "asset_number",

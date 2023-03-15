@@ -1,9 +1,10 @@
 <template>
-  <aside class="z-20 hidden w-64 overflow-y-auto bg-white md:block flex-shrink-0 shadow-2xl">
+  <aside
+    class="z-20 hidden w-64 overflow-y-auto bg-gradient-to-t from-indigo-300 via-zinc-100 to-white md:block flex-shrink-0 shadow-2xl">
     <!--sidebar title-->
     <div class="py-4 text-gray-500">
-      <Link class="ml-6 text-lg font-bold text-gray-800" :href="route('dashboard')">
-      AptaDash
+      <Link class="ml-6 text-2xl font-bold text-gray-800" :href="route('dashboard')">
+      HRD Dashboard
       </Link>
 
       <ul class="mt-6">
@@ -28,26 +29,21 @@ export default {
     Link,
     NavigationItem
   },
-  data() {
-    return {
-      navigation: []
-    }
-  },
   setup() {
     let showingTwoLevelMenu = ref(false)
-    return {
-      showingTwoLevelMenu
-    }
-  },
-  mounted() {
+    let navigation = ref([]);
     axios.get('/api/navigation')
       .then(response => {
-        this.navigation = response.data.payload;
+        navigation.value = response.data.payload;
         console.log(response.data.payload);
       })
       .catch(error => {
         console.error('Error fetching navigation menu:', error)
       })
-  }
+    return {
+      showingTwoLevelMenu,
+      navigation
+    }
+  },
 }
 </script>

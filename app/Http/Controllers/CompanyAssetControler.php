@@ -31,7 +31,13 @@ class CompanyAssetControler extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'asset_number' => 'required|numeric',
+        ]);
+        CompanyAsset::create($request->toArray());
+        return Inertia::render('CompanyAsset/Index', [
+            'company_assets' => CompanyAsset::paginate()
+        ])->with('message', 'Successfully register Asset!');
     }
 
     /**
@@ -55,16 +61,24 @@ class CompanyAssetControler extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, CompanyAsset $company_asset)
     {
-        //
+        $company_asset->update($request->toArray());
+
+        return Inertia::render('CompanyAsset/Index', [
+            'company_assets' => CompanyAsset::paginate()
+        ])->with('message', 'Successfully update Asset!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(CompanyAsset $company_asset)
     {
-        //
+        $company_asset->delete();
+
+        return Inertia::render('CompanyAsset/Index', [
+            'company_assets' => CompanyAsset::paginate()
+        ])->with('message', 'Successfully delete Asset!');
     }
 }
