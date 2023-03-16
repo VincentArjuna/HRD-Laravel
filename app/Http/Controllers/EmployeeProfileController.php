@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EmployeeAsset;
+use App\Models\EmployeeFamily;
 use App\Models\EmployeeProfile;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -23,7 +25,14 @@ class EmployeeProfileController extends Controller
      */
     public function details(EmployeeProfile $employee_profile)
     {
-        return;
+        $profile = $employee_profile;
+        $family = EmployeeFamily::where('nik', $employee_profile->nik)->first();
+        $assets = EmployeeAsset::where('nik', $employee_profile->nik)->get();
+        return Inertia::render('EmployeeProfile/Detail', [
+            'profile' => $profile,
+            'family' => $family,
+            'assets' => $assets
+        ]);
     }
 
     /**
